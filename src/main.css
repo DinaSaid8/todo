@@ -1,0 +1,145 @@
+/* general styles */
+:root {
+	--success: #198754;
+	--light: #888;
+	--grey: #888;
+	--dark:rgb(95, 95, 97);
+	--color2:rgb(27, 27, 27);
+	--background-color-primary: #eee;
+	--sun:none;
+	--moon:none;
+}
+:root.dark-theme {
+    --background-color-primary: #272525;
+    --accent-color: #3f3f3f;
+	--light: #EEE;
+	--dark:rgb(119, 118, 118);
+	--color2:rgb(226, 224, 219);
+	--title: #fff;
+	--sun:block;
+	--moon:none;
+}
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family:cursive ;
+}
+body {
+	background-color: var(--background-color-primary);
+}
+section {
+	margin-top: 2rem;
+	margin-bottom: 2rem;
+	padding-left: 1.5rem;
+	padding-right: 1.5em;
+}
+h3 {
+	margin-bottom: 0.5rem;
+	background: linear-gradient( to right, #f32170, #ff6b08,#cf23cf, #eedd44);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+}
+h2{
+	background: linear-gradient( to right, #f32170, #ff6b08,#cf23cf, #eedd44);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+}
+/* Modes */
+.switch-checkbox {
+    display: none;
+}
+.sun-icon{
+	display: var(--sun);
+}
+.moon-icon{
+	display: var(--mon);
+}
+.switch-label {
+    width:2%;
+    cursor: pointer;
+    display: flex;
+    transition: background 0.5s ease;
+}
+/* create todo */
+input:not([type="radio"]):not([type="checkbox"]) {
+	appearance: none;
+	border: none;
+	outline: none;
+	background: none;
+	cursor: initial;
+}
+.create-todo input[type="text"] {
+	display: block;
+	border: 2px dotted var(--grey);
+	width: 100%;
+	font-size: 1.2rem;
+	padding: .5rem ;
+	color: var(--light);
+	border-radius: 0.5rem;
+	margin-bottom: 1.5rem;
+}
+input[type="radio"],
+input[type="checkbox"] {
+	display: none;
+}
+.bubble {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 20px;
+	height: 20px;
+	border-radius: 50%;
+	border: 2px solid var(--success);
+}
+.bubble::after {
+	content: "";
+	display: block;
+	opacity: 0;
+	width: 0px;
+	height: 0px;
+	background-color: var(--success);
+	border-radius: 50%;
+	transition: 0.2s ease-in-out;
+}
+input:checked ~ .bubble::after {
+	width: 10px;
+	height: 10px;
+	opacity: 1;
+}
+.todo-list .list {
+	margin: 1rem 0;
+} 
+.todo-list .todo-item {
+	display: flex;
+	align-items: center;
+	/* background-color: rgb(68, 65, 65); */
+	border: 2px dotted var(--grey);
+
+	padding: 1rem;
+	border-radius: 0.5rem;
+	/* box-shadow: var(--shadow); */
+	margin-bottom: 1rem;
+}
+.todo-item label {
+	display: block;
+	margin-right: 1rem;
+	cursor: pointer;
+}
+.todo-item .todo-content {
+	flex: 1 1 0%;
+	word-break: break-word;
+
+}
+.todo-item .todo-content input,p {
+	color: var(--dark);
+	font-size: 1.125rem;
+	word-break: break-word;
+
+}
+.todo-item.done .todo-content input {
+	text-decoration: line-through;
+	color: var(--grey);
+	word-break: break-word;
+
+}
